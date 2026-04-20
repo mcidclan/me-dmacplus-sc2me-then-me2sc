@@ -86,7 +86,7 @@ void exitSample(const char* const str) {
 int main() {
   scePowerSetClockFrequency(333, 333, 166);
 
-  if (pspSdkLoadStartModule("ms0:/PSP/GAME/me/kcall.prx", PSP_MEMORY_PARTITION_KERNEL) < 0){
+  if (pspSdkLoadStartModule("./kcall.prx", PSP_MEMORY_PARTITION_KERNEL) < 0){
     exitSample("Can't load the PRX, exiting...");
     return 0;
   }

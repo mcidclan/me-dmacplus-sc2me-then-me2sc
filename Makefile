@@ -3,6 +3,8 @@ PATHSRC = ./
 PATHOBJS = $(BINOUT)
 TARGET = $(BINOUT)sc2me
 
+BUILD_PRX = 1
+
 CPP_FILES = $(shell ls $(PATHSRC)*.cpp)
 S_FILES = $(shell ls $(PATHSRC)*.S)
 PATHFILES = $(CPP_FILES) $(S_FILES)
@@ -10,7 +12,7 @@ PATHFILES = $(CPP_FILES) $(S_FILES)
 OBJS = $(notdir $(patsubst %.cpp, %.o, $(patsubst %.S, %.o, $(PATHFILES))))
 OBJS := $(sort $(OBJS:%.o=$(PATHOBJS)%.o))
 
-CFLAGS = -Ofast -G0 -Wall -fno-pic -I./kernel/src
+CFLAGS = -Os -G0 -Wall -fno-pic -I./kernel/src
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti  -std=c++11
 ASFLAGS = $(CFLAGS)
 
